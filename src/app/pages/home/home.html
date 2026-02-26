@@ -1,0 +1,14 @@
+<section class="vitrine">
+  <h2>Destaques da Semana</h2>
+  <div class="grid-livros">
+    @for (livro of listaLivros; track livro.id) {
+      <div class="card-livro">
+        <img [src]="livro.capa" [alt]="livro.titulo" />
+        <h3>{{ livro.titulo }}</h3>
+        <p class="autor">{{ livro.autor }}</p>
+        <p class="preco">{{ livro.preco | currency: 'BRL' }}</p>
+        <button class="btn-comprar">Ver Detalhes</button>
+      </div>
+    }
+  </div>
+</section>

@@ -1,0 +1,39 @@
+
+@use "../../../styles.scss" as global;
+
+:host {
+  display: block;
+  width: 100%;
+}
+
+.livraria-header {
+  background: linear-gradient(135deg, global.$cor-primaria 0%, global.$cor-secundaria 50%, global.$cor-acento 100%);
+  padding: 1rem 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: global.$cor-texto-claro;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    h1 { font-size: 1.6rem; margin: 0; }
+  }
+
+  .menu ul {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    list-style: none;
+    margin: 0;
+
+    li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+  }
+}
