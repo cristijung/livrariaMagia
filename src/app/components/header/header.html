@@ -9,6 +9,22 @@
       <li><a routerLink="">Início</a></li>
       <li><a routerLink="categoria">Categoria</a></li>
       <li><a routerLink="promocoes">Promoções</a></li>
+      <li> 
+        @if (!isLogged()) {
+          <button class="btn-login" (click)="entrar()">
+            <lucide-icon [name]="UserIcons" class="icon-btn"></lucide-icon>
+            Entrar
+          </button>
+        } @else {
+          <div class="user-area">
+            <span>Olá, Leitor!</span>
+            <button class="btn-logout" (click)="sair()">
+              <lucide-icon [name]="LogOutIcon" class="icon-btn"></lucide-icon>
+            </button>
+          </div>
+        }
+      </li>
+
     </ul>
   </nav>
 </header>
