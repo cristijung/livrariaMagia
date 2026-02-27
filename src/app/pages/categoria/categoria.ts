@@ -1,24 +1,32 @@
 // componente pai
 
-import { Component } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { LivroCard } from '../../components/livro-card/livro-card';
+import { HttpClient } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
+import { Pokemon, PokemonServices } from '../../services/pokemon.services';
 
 @Component({
   selector: 'app-categoria',
-  imports: [LivroCard],
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './categoria.html',
   styleUrl: './categoria.scss',
 })
 export class Categoria {
-  carrinho: string[] = [];
+  private pokemonService = inject(PokemonServices);
 
-  livrosDaCategoria = [
-    { id: 10, nome: 'It - A Coisa', nivel: 'Épico'},
-    { id: 12, nome: 'O Exorcista', nivel: 'Trevoso'},
-  ];
+  pokemonList = signal<Pokemon[]>([]);
 
-  adicionarAoCarrinho(evento: any) {
-    console.log(`Adicionado: ${evento.nome} com ${evento.qtd} unidades.`);
+  ngOnInit(): void {
+    this.pokemonService.getPokemonList().subscribe({
+      next: (response) => {
+        this.pokemonList.set(response.results);
+      },
+      error: (err) => {
+        console.error("Deu erro", err);
+      }
+    })
   }
 
 }

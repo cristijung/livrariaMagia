@@ -1,15 +1,11 @@
 
 <section>
-  <h2>Livros da Categoria</h2>
+  <h2>Livros de Pokemons</h2>
 
   <div class="categoria-container ">
     <div class="grid-livros">
-    @for (livro of livrosDaCategoria; track livro.id) {
-      <app-livro-card
-        [titulo]="livro.nome"
-        [raridade]="livro.nivel"
-        (comprar)="adicionarAoCarrinho($event)">
-      </app-livro-card>
+    @for (pokemon of pokemonList(); track pokemon.name) {
+       <h1>{{pokemon.name}}</h1>
     }
   </div>
   </div>
