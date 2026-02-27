@@ -1,1 +1,16 @@
-<p>categoria works!</p>
+
+<section>
+  <h2>Livros da Categoria</h2>
+
+  <div class="categoria-container ">
+    <div class="grid-livros">
+    @for (livro of livrosDaCategoria; track livro.id) {
+      <app-livro-card
+        [titulo]="livro.nome"
+        [raridade]="livro.nivel"
+        (comprar)="adicionarAoCarrinho($event)">
+      </app-livro-card>
+    }
+  </div>
+  </div>
+</section>

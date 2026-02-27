@@ -1,0 +1,24 @@
+<div class="card-magico">
+  <lucide-icon [name]="BookIcon" class="icon-topo"></lucide-icon>
+
+  <h3>{{ titulo() }}</h3>
+  <span class="badge">{{ raridade() }}</span>
+
+  <div class="seletor">
+    <button (click)="alterarQtd(-1)" [disabled]="quantidade() <= 1">
+      <lucide-icon [name]="MinusIcon" size="16"></lucide-icon>
+    </button>
+
+    <span class="qtd-numero">{{ quantidade() }}</span>
+    
+    <button (click)="alterarQtd(1)">
+      <lucide-icon [name]="PlusIcon" size="16"></lucide-icon>
+    </button>
+  </div>
+
+  <button class="btn-adicionar" (click)="notificarPai()">
+    <lucide-icon [name]="CartIcon" size="18"></lucide-icon>
+    Adicionar ao Caldeirão
+  </button>
+</div>
+
