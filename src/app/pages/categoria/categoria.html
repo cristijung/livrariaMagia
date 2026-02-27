@@ -5,6 +5,11 @@
   <div class="categoria-container ">
     <div class="grid-livros">
     @for (pokemon of pokemonList(); track pokemon.name) {
+       <img 
+            [src]="pokemon.urlImagem" 
+            [alt]="pokemon.name"
+            class="pokemon-img"
+          >
        <h1>{{pokemon.name}}</h1>
     }
   </div>

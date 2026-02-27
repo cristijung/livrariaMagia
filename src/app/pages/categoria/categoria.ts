@@ -21,12 +21,21 @@ export class Categoria {
   ngOnInit(): void {
     this.pokemonService.getPokemonList().subscribe({
       next: (response) => {
-        this.pokemonList.set(response.results);
+        const listaComPokemons = response.results.map((pokemon: Pokemon) => {
+
+          const id = pokemon.url.split("/").filter(Boolean).pop();
+
+          return{
+            ...pokemon,
+            urlImagem: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`
+          }
+
+        })
+        this.pokemonList.set(listaComPokemons);
       },
       error: (err) => {
-        console.error("Deu erro", err);
-      }
-    })
+        console.error('Deu erro', err);
+      },
+    });
   }
-
 }

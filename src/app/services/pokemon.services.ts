@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 export interface Pokemon {
   name: string;
   url: string;
+  urlImagem: string;
 }
 
 export interface PokemonList {
